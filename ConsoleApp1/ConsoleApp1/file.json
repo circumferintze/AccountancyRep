@@ -2,15 +2,18 @@
   "People": [
     {
       "FirstName": "Mary",
-      "LastName": "Apple"
+      "LastName": "Apple",
+        "idP" : 1
     },
     {
       "FirstName": "Mihai",
-      "LastName": "Pear"
+      "LastName": "Pear",
+      "idP": 2
     },
     {
       "FirstName": "John",
-      "LastName": "Orange"
+      "LastName": "Orange",
+      "idP": 3
     }
   ],
   "Payments": [
