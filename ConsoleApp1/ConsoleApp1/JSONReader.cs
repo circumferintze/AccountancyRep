@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    partial class JSONReader
+    public class JSONReader
     {
         public void LoadJson()
         {
@@ -21,11 +21,6 @@ namespace ConsoleApp1
             var result = data.Payments.GroupBy(x => x.PaymentDate.Month)
                 .Select(g => new RepresentData{ Data = g.Key, Average = g.Average(s => s.Amount) });
         }
-    }
-    public class RepresentData
-    {
-        public int Data { get;set; }
-        public double Average { get; set; }
     }
         
 }

@@ -1,0 +1,18 @@
+<Monthly Report>
+<Month : 10 >
+<FirstName> Mary <FirstName>
+<LastName> Apple <LastName>
+<Amount> 1200 <Amount>
+<PaymentDate> 10/2/2010 <PaymentDate>
+
+<FirstName> Mihai <FirstName>
+<LastName> Pear <LastName>
+<Amount> 2300 <Amount>
+<PaymentDate> 10/3/2010 <PaymentDate>
+
+<FirstName> Mihai <FirstName>
+<LastName> Pear <LastName>
+<Amount> 1000 <Amount>
+<PaymentDate> 10/4/2010 <PaymentDate>
+
+<AverageByMonth : 1500>
