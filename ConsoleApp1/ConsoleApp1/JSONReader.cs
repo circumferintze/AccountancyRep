@@ -17,6 +17,19 @@ namespace ConsoleApp1
                 json = r.ReadToEnd();
             }
             var data = JsonConvert.DeserializeObject<DataModel>(json);
+            double sum = 0;
+            int count = 0;
+            var data1 = data.Payments.Count;
+            
+            foreach (var item in data.Payments)
+            {   //if(item.PaymentDate.Month==)
+                sum += item.Amount;
+                count++;
+            }
+            double averageYear = sum / count;
+
+            
+            
         }
 
     }
