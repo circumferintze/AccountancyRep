@@ -1,0 +1,23 @@
+{
+  "People": [
+    {
+      "FirstName": "Mary",
+      "LastName": "Apple"
+    },
+    {
+      "FirstName": "Mihai",
+      "LastName": "Pear"
+    },
+    {
+      "FirstName": "John",
+      "LastName": "Orange"
+    }
+  ],
+  "Payments": [
+    {
+      "PersonId": 1,
+      "Amount": 1200,
+      "PaymentDate": "10/2/2010"
+    }
+  ]
+}
