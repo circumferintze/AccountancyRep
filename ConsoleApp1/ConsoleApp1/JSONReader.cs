@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 
@@ -19,8 +20,8 @@ namespace ConsoleApp1
             var data = JsonConvert.DeserializeObject<DataModel>(json);
             double sum = 0;
             int count = 0;
-            var data1 = data.Payments.Count;
-            
+            //var data1 = data.Payments.Count;
+            var groupData = data.Payments.GroupBy(x => x.PaymentDate.Month);
             foreach (var item in data.Payments)
             {   //if(item.PaymentDate.Month==)
                 sum += item.Amount;
