@@ -18,10 +18,12 @@ namespace ConsoleApp1
                 json = r.ReadToEnd();
             }
             var data = JsonConvert.DeserializeObject<DataModel>(json);
-            var result = data.Payments.GroupBy(x => x.PaymentDate.Month)
+            var resultMonth = data.Payments.GroupBy((x=>  new { x => x.PaymentDate.Year , x=> x.PaymentDate.Year})
+            //(x => x.PaymentDate.Month)/*(x,y) => x=>x.PaymentDate.Month, y=>y.PaymentDate.Year*/
                 .Select(g => new RepresentData{ Data = g.Key, Average = g.Average(s => s.Amount) });
+            //var resultYear = data.Payments.GroupBy(x => x.PaymentDate.Year)
+             //   .Select(g => new RepresentData { Data = g.Key, Average = g.Average(s => s.Amount) });
         }
-    }
         
 }
 
