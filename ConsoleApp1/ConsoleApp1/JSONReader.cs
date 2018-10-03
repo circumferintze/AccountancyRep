@@ -18,12 +18,32 @@ namespace ConsoleApp1
                 json = r.ReadToEnd();
             }
             var data = JsonConvert.DeserializeObject<DataModel>(json);
-            var resultMonth = data.Payments.GroupBy((x=>  new { x => x.PaymentDate.Year , x=> x.PaymentDate.Year})
-            //(x => x.PaymentDate.Month)/*(x,y) => x=>x.PaymentDate.Month, y=>y.PaymentDate.Year*/
-                .Select(g => new RepresentData{ Data = g.Key, Average = g.Average(s => s.Amount) });
-            //var resultYear = data.Payments.GroupBy(x => x.PaymentDate.Year)
-             //   .Select(g => new RepresentData { Data = g.Key, Average = g.Average(s => s.Amount) });
+            var resultYearMonth = data.Payments.GroupBy(x => x.PaymentDate.Year)
+              .Select(m => new { Key = m.Key, Value = m.GroupBy(k => k.PaymentDate.Month)
+              .Select(g => new RepresentData { Data = g.Key, Average = g.Average(s => s.Amount)})});
+
+            var resultMonth = data.Payments.GroupBy(x => x.PaymentDate.Month)
+               .Select(g => new RepresentData { Data = g.Key, Average = g.Average(s => s.Amount) });
+
+            var resultYear = data.Payments.GroupBy(x => x.PaymentDate.Year)
+               .Select(g => new RepresentData { Data = g.Key, Average = g.Average(s => s.Amount) });
+
+            var persons = data.People;
+            var payments = data.Payments;
+            var joinQuerry =
+                from T1 in persons
+                join T2 in payments on T1.idP equals T2.PersonId
+                select new
+                {
+                    PersonId = T1.idP,
+                    FirstNameRep = T1.FirstName,
+                    LastNameRep= T1.LastName,
+                    PaymentAmount = T2.Amount,
+                    PaymentMonth = T2.PaymentDate.Month
+                };
+
         }
-        
+   
+    }
 }
 
