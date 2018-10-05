@@ -24,8 +24,18 @@
     },
     {
       "PersonId": 1,
+      "Amount": 1300,
+      "PaymentDate": "11/2/2010"
+    },
+    {
+      "PersonId": 1,
       "Amount": 1400,
-      "PaymentDate": "10/22/2010"
+      "PaymentDate": "12/2/2010"
+    },
+    {
+      "PersonId": 1,
+      "Amount": 1400,
+      "PaymentDate": "7/22/2010"
     },
     {
       "PersonId": 2,
@@ -35,7 +45,7 @@
     {
       "PersonId": 2,
       "Amount": 1000,
-      "PaymentDate": "10/4/2011"
+      "PaymentDate": "10/4/2010"
     },
     {
       "PersonId": 3,
@@ -43,4 +53,4 @@
       "PaymentDate": "9/4/2010"
     }
   ]
-    }
+}

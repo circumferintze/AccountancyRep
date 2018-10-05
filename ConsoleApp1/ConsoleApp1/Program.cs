@@ -7,7 +7,10 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             JSONReader j = new JSONReader();
-            j.LoadJson();
+            DataModel loadedJson = j.LoadJson();
+            Report report = new Report();
+
+            report.ToMontlhyReportToXml(loadedJson, 2010, 10);
         }
     }
 }
