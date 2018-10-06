@@ -50,6 +50,7 @@
     <Compile Include="JSONReader.cs" />
     <Compile Include="DataModel\Payment.cs" />
     <Compile Include="DataModel\Person.cs" />
+    <Compile Include="TxtWriterXml.cs" />
     <Compile Include="ViewModels\PersonPaymentModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

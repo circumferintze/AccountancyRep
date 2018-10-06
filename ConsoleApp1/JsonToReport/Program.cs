@@ -11,6 +11,7 @@ namespace JsonToReport
             ReportFactory reportFactory = new ReportFactory();
 
             var xmlResult = reportFactory.ToMontlhyReportToXml(loadedJson, 2010, 10);
+            TxtWriterXml.Save(xmlResult, "Monthly Report");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -11,12 +12,19 @@ namespace JsonToReport
             XmlSerializer xsSubmit = new XmlSerializer(monthlyReport.GetType());
             var subReq = monthlyReport;
             var xml = "";
+
             using (var sww = new StringWriter())
             {
-                using (XmlWriter writer = XmlWriter.Create(sww))
+                var settings = new XmlWriterSettings();
+                settings.OmitXmlDeclaration = true;
+                settings.Indent = true;
+                settings.NewLineOnAttributes = true;
+
+                using (XmlWriter writer = XmlWriter.Create(sww, settings))
                 {
                     xsSubmit.Serialize(writer, subReq);
                     xml = sww.ToString(); // Your XML
+
                 }
             }
             return xml;
