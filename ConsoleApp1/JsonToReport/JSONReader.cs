@@ -18,7 +18,6 @@ namespace JsonToReport
                 json = r.ReadToEnd();
             }
             DataModel data = JsonConvert.DeserializeObject<DataModel>(json);
-
             return data;
         }
    

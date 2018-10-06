@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JsonToReport
 {
-    public class ReportModel
+    public class ViewReportModel
     {
         public string Title { get; set; }
         public string ReportPeriod { get; set; } // Moth Jun, Year 2017

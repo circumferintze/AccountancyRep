@@ -46,17 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModel.cs" />
+    <Compile Include="DataModel\DataModel.cs" />
     <Compile Include="JSONReader.cs" />
-    <Compile Include="Payment.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="Models\PersonPaymentModel.cs" />
+    <Compile Include="DataModel\Payment.cs" />
+    <Compile Include="DataModel\Person.cs" />
+    <Compile Include="ViewModels\PersonPaymentModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report.cs" />
     <Compile Include="ReportFactory.cs" />
-    <Compile Include="Models\ReportModel.cs" />
-    <Compile Include="RepresentData.cs" />
+    <Compile Include="ViewModels\ViewReportModel.cs" />
+    <Compile Include="XmlReport.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="XMLFile1.xml" />
@@ -66,6 +65,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

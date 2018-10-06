@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 using JsonToReport;
 
 namespace JsonToReport
@@ -14,7 +11,7 @@ namespace JsonToReport
     {
         public string ToMontlhyReportToXml(DataModel data, int reportYear, int reportMonth)
         {
-            ReportModel MonthlyReport = new ReportModel();
+            ViewReportModel MonthlyReport = new ViewReportModel();
 
             var persons = data.People;
             var payments = data.Payments;
@@ -43,21 +40,7 @@ namespace JsonToReport
             MonthlyReport.Title = "Monthly Report";
             MonthlyReport.ReportPeriod = $"Year: {reportYear} Month: {reportMonth}";
             MonthlyReport.Average = MonthlyReport.PersonPayments.Average(a => a.Amount);
-
-            XmlSerializer xsSubmit = new XmlSerializer(typeof(ReportModel));
-            var subReq = MonthlyReport;
-            var xml = "";
-
-            using (var sww = new StringWriter())
-            {
-                using (XmlWriter writer = XmlWriter.Create(sww))
-                {
-                    xsSubmit.Serialize(writer, subReq);
-                    xml = sww.ToString(); // Your XML
-                }
-            }
-
-            return xml;
+            return XmlReport.Generate(MonthlyReport);
         }
 
         public void ToAnualReportToXml()
@@ -70,4 +53,5 @@ namespace JsonToReport
             // create xml report and save it
         }
     }
+
 }
